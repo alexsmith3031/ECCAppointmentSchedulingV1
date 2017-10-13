@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  root 'welcome#index'
+
   resources :insurances
   resources :appointments
   resources :vehicle_types
