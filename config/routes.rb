@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+
   resources :insurances
   resources :appointments
   resources :vehicle_types
