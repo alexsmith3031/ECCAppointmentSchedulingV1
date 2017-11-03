@@ -17,7 +17,7 @@
       <tr>
         <td><%= appointment.app_date %></td>
         <td><%= appointment.app_status %></td>
-        <td><%= appointment.customer %></td>
+        <td><%= appointment.customer.cust_FName %></td>
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +29,4 @@
 <br>
 
 <%= link_to 'New Appointment', new_appointment_path %>
+

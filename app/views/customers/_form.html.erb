@@ -1,4 +1,4 @@
-<%= form_with(model: customer, local: true) do |form| %>
+<%= form_for @customer do |f| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -12,31 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :cust_FName %>
-    <%= form.text_field :cust_FName, id: :customer_cust_FName %>
+    <%= f.label :cust_FName %>
+    <%= f.text_field :cust_FName, id: :customer_cust_FName %>
   </div>
 
   <div class="field">
-    <%= form.label :cust_Mi %>
-    <%= form.text_field :cust_Mi, id: :customer_cust_Mi %>
+    <%= f.label :cust_Mi %>
+    <%= f.text_field :cust_Mi, id: :customer_cust_Mi %>
   </div>
 
   <div class="field">
-    <%= form.label :cust_LName %>
-    <%= form.text_field :cust_LName, id: :customer_cust_LName %>
+    <%= f.label :cust_LName %>
+    <%= f.text_field :cust_LName, id: :customer_cust_LName %>
   </div>
 
   <div class="field">
-    <%= form.label :cust_email %>
-    <%= form.text_field :cust_email, id: :customer_cust_email %>
+    <%= f.label :cust_email %>
+    <%= f.text_field :cust_email, id: :customer_cust_email %>
   </div>
 
   <div class="field">
-    <%= form.label :cust_phone %>
-    <%= form.text_field :cust_phone, id: :customer_cust_phone %>
+    <%= f.label :cust_phone %>
+    <%= f.text_field :cust_phone, id: :customer_cust_phone %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+
+Appointments:
+    <%= f.fields_for :appointments do |app_form| %>
+        <div class="field">
+          <%= app_form.label :app_date %>
+          <%= app_form.datetime_select :app_date, id: :appointment_app_date %>
+        </div>
+
+
+
+
+
 <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>
+
